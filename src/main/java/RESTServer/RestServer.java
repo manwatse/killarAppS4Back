@@ -1,8 +1,12 @@
 package RESTServer;
 
+import RESTServer.handlers.AgendaHandler;
+import RESTServer.handlers.IAgendaHandler;
 import RESTServer.handlers.IUserHandler;
 import RESTServer.handlers.UserHandler;
+import RESTServer.restServices.AgendaService;
 import RESTServer.restServices.UserService;
+import dal.repository.AgendaRepository;
 import dal.repository.UserRepository;
 import logging.Logger;
 import org.eclipse.jetty.server.*;
@@ -16,7 +20,7 @@ import javax.servlet.DispatcherType;
 import java.util.EnumSet;
 
 public class RestServer {
-    private static final int PORT = 8094;
+    private static final int PORT = 8099;
 
     public static void main(String[] args) {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
@@ -40,6 +44,9 @@ public class RestServer {
 
         IUserHandler userHandler = new UserHandler(new UserRepository());
         UserService.setHandler(userHandler);
+
+        IAgendaHandler agendaHandler = new AgendaHandler(new AgendaRepository());
+        AgendaService.setHandler(agendaHandler);
 
 
         // Tells the Jersey Servlet which REST service/class to load

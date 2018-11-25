@@ -11,7 +11,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
 
-@Path("/SIMS")
+@Path("/Agenda")
 public class UserService {
     private static IUserHandler handler;
     private PasswordHasher passwordHasher = new PasswordHasher();
