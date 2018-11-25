@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d3fd1cef-ab85-4211-baeb-cd7b11807cdd" name="Default Changelist" comment="REST + userhandler+userservice">
-      <change afterPath="$PROJECT_DIR$/src/main/java/RESTServer/handlers/AgendaHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RESTServer/handlers/IAgendaHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RESTServer/restServices/AgendaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dal/repository/AgendaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RESTServer/RestServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RESTServer/RestServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RESTServer/restServices/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RESTServer/restServices/UserService.java" afterDir="false" />
-    </list>
+    <list default="true" id="d3fd1cef-ab85-4211-baeb-cd7b11807cdd" name="Default Changelist" comment="REST + userhandler+userservice" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -141,8 +132,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/RESTServer/restServices/AgendaService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" column="95" selection-start-line="39" selection-start-column="95" selection-end-line="39" selection-end-column="95" />
+            <state relative-caret-position="748">
+              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -233,7 +224,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="945" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
@@ -359,7 +350,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543177805306" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543179248114" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -394,7 +385,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543158705292</updated>
-      <workItem from="1543158711339" duration="9194000" />
+      <workItem from="1543158711339" duration="10063000" />
     </task>
     <task id="LOCAL-00001" summary="REST + userhandler+userservice">
       <created>1543161456364</created>
@@ -407,11 +398,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9194000" />
+    <option name="totallyTimeSpent" value="10063000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="945" y="0" width="974" height="1087" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="Image Layers" />
@@ -758,8 +748,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/RESTServer/restServices/AgendaService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="95" selection-start-line="39" selection-start-column="95" selection-end-line="39" selection-end-column="95" />
+        <state relative-caret-position="748">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
