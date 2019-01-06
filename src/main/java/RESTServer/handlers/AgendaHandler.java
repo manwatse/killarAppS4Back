@@ -1,27 +1,25 @@
 package RESTServer.handlers;
 
 import com.google.gson.Gson;
-import dal.repository.AgendaRepository;
-import dal.repository.UserRepository;
 import models.Appointment;
 import models.PasswordHasher;
 import response.Reply;
 
 import java.util.Date;
 
-public class AgendaHandler implements IAgendaHandler{
+public class AgendaHandler implements IAgendaHandler {
 
-    private AgendaRepository repository;
+
     private Gson gson;
     private PasswordHasher passwordHasher;
 
 
+    public AgendaHandler() {
 
-    public AgendaHandler(AgendaRepository repository) {
-        this.repository = repository;
         this.gson = new Gson();
         this.passwordHasher = new PasswordHasher();
     }
+
     //TODO: Add checks + error handling + implement
     @Override
     public Reply getAllAppointment(int userId) {
@@ -47,11 +45,6 @@ public class AgendaHandler implements IAgendaHandler{
     public Reply updateAppointment(Appointment appointment) {
         return null;
     }
-
-
-
-
-
 
 
 }

@@ -1,53 +1,41 @@
 package dal;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
+import models.User;
+
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.cfg.Environment;
+import org.hibernate.service.ServiceRegistry;
+
+import java.util.Properties;
 
 public class HibernateUtil {
-    private static SessionFactory sessionFactory = buildSessionFactory();
 
+    private static SessionFactory sessionFactory;
     public static SessionFactory getSessionFactory() {
+        if (sessionFactory == null) {
+            try {
+                Configuration configuration = new Configuration();
+                // Hibernate settings equivalent to hibernate.cfg.xml's properties
+                Properties settings = new Properties();
+                settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
+                settings.put(Environment.URL, "jdbc:mysql://studmysql01.fhict.local/dbi341449");
+                settings.put(Environment.USER, "dbi341449");
+                settings.put(Environment.PASS, "i like trains");
+                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
+                settings.put(Environment.SHOW_SQL, "true");
+                settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+                settings.put(Environment.HBM2DDL_AUTO, "create-drop");
+                configuration.setProperties(settings);
+                configuration.addAnnotatedClass(User.class);
+                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+                sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+                System.out.print("connected");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return sessionFactory;
-    }
-
-    public static boolean initSessionFactory() {
-
-        Session session = sessionFactory.openSession();
-
-        try {
-            session.createSQLQuery("SELECT 1;").list();
-            Util.logInfo("Connection initialization is completed.");
-            return true;
-        } catch (RuntimeException ex) {
-            Util.logException(ex);
-        } finally {
-            session.close();
-        }
-
-        Util.logError("Connection initialization failed.");
-        return false;
-    }
-
-
-    public static void closeSessionFactory() {
-        sessionFactory.close();
-        Util.logInfo("Connection and Session Factory is closed.");
-    }
-
-    private static SessionFactory buildSessionFactory() {
-        try {
-            Configuration configuration = new Configuration().configure("/hibernate.cfg.xml");
-            StandardServiceRegistryBuilder standardServiceRegistryBuilder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-            StandardServiceRegistry standardServiceRegistry = standardServiceRegistryBuilder.build();
-            return configuration.buildSessionFactory(standardServiceRegistry);
-        }
-        catch (HibernateException ex) {
-            System.err.println("Session factory initialization failed. " + ex.getMessage());
-            throw new ExceptionInInitializerError(ex);
-        }
     }
 }

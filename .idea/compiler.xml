@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="killarAppS4Back" />
+        <module name="killerAppS4Back" />
       </profile>
     </annotationProcessing>
   </component>

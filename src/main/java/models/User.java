@@ -6,10 +6,10 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "users")
+@Table(name = "Gebruiker")
 public class User {
     @Id
-    @Column(name = "userId", nullable = false)
+    @Column(name = "userId")
     @GeneratedValue(generator = "incrementor")
     @GenericGenerator(name = "incrementor", strategy = "increment")
     private int userId;
@@ -20,10 +20,10 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "tokenstring")
+    @Column(name = "tokenstring",nullable = true)
     private String tokenString;
 
-    @Column(name = "tokencreationdate")
+    @Column(name = "tokencreationdate",nullable = true)
     private Date tokenCreationDate;
 
     // Getters and setters

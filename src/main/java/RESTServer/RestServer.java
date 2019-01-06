@@ -1,14 +1,10 @@
 package RESTServer;
 
-import RESTServer.handlers.AgendaHandler;
-import RESTServer.handlers.IAgendaHandler;
-import RESTServer.handlers.IUserHandler;
-import RESTServer.handlers.UserHandler;
+import RESTServer.handlers.*;
 import RESTServer.restServices.AgendaService;
 import RESTServer.restServices.UserService;
-import dal.repository.AgendaRepository;
-import dal.repository.UserRepository;
 import logging.Logger;
+import models.User;
 import org.eclipse.jetty.server.*;
 import org.eclipse.jetty.servlet.FilterHolder;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -18,6 +14,7 @@ import org.glassfish.jersey.servlet.ServletContainer;
 
 import javax.servlet.DispatcherType;
 import java.util.EnumSet;
+import java.util.List;
 
 public class RestServer {
     private static final int PORT = 8099;
@@ -41,13 +38,20 @@ public class RestServer {
 
         // Creating and settings handlers
 
-
-        IUserHandler userHandler = new UserHandler(new UserRepository());
+        IUserHandler userHandler = new UserHandler();
         UserService.setHandler(userHandler);
 
-        IAgendaHandler agendaHandler = new AgendaHandler(new AgendaRepository());
+        IAgendaHandler agendaHandler = new AgendaHandler();
         AgendaService.setHandler(agendaHandler);
 
+        //test hiber
+
+        testHandler test= new testHandler();
+        User usertest = new User("test@mail.nl","1234");
+        test.saveStudent(usertest);
+
+        List<User> users = test.getStudents();
+        users.forEach(s -> System.out.println(s.getEmailaddress()));
 
         // Tells the Jersey Servlet which REST service/class to load
         jerseyServlet.setInitParameter("jersey.config.server.provider.packages", "SimsRESTServer.restservices");
@@ -55,6 +59,7 @@ public class RestServer {
         try {
             jettyServer.start();
             jettyServer.join();;
+
         } catch (Exception e) {
             Logger.getInstance().log(e);
         } finally {
