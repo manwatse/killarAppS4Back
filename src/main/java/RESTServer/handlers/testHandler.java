@@ -11,6 +11,12 @@ import java.util.List;
 public class testHandler {
     public void saveStudent(User user) {
         Transaction transaction = null;
+        try(Session session= HibernateUtil.getSessionFactory().openSession()) {
+
+        } catch ( Exception e){
+
+        }
+
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();

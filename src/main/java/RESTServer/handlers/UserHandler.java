@@ -8,14 +8,12 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.awt.image.RescaleOp;
 
-<<<<<<< Updated upstream
-public class UserHandler implements IUserHandler {
 
-=======
+
+
 @Path("/Calendar")
 public class UserHandler implements IUserHandler{
-    private UserRepository repository;
->>>>>>> Stashed changes
+
     private Gson gson;
     private PasswordHasher passwordHasher;
 
