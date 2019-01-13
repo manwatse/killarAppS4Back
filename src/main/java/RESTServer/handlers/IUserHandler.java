@@ -2,9 +2,10 @@ package RESTServer.handlers;
 
 import response.Reply;
 
+import javax.ws.rs.core.Response;
+
 public interface IUserHandler {
-    Reply register(String emailaddress, String password);
-    Reply login(String emailaddress, String password);
-    Reply editUser();
-    Reply getAll();
+    Response register(String message);
+    Response login(String message);
+
 }
