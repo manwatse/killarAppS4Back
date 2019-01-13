@@ -13,7 +13,8 @@ public class Reply {
         return status;
     }
 
-    public String getMessage() {
+    public String
+    getMessage() {
         return  message;
     }
 }

@@ -1,54 +1,45 @@
 package models;
 
-import org.hibernate.annotations.GenericGenerator;
+
 
 import javax.persistence.*;
 import java.util.Date;
+
 @Entity
 @Table(name="appointments")
 public class Appointment {
 
    @Id
-   @Column(name="appointmentId",nullable = false)
-   @GeneratedValue(generator = "incrementor")
-   @GenericGenerator(name = "incrementor", strategy = "increment")
-   private int appointmentId;
+   @GeneratedValue(strategy = GenerationType.AUTO)
+   private int id;
 
-   @Column(name = "name",nullable = false)
+   @Column(nullable = false)
+   private int userid;
    private String name;
-   @Column(name = "description",nullable = true)
-   private String description;
-   @Column(name = "date",nullable = false)
-   private Date date;
+   private Date beginDate;
+   private Date endDate;
 
 
-   //Constructors
-
-   public Appointment(){}
-
-   public Appointment(String name){this.name=name;}
-
-   public Appointment(String name,String description,Date date){
-      this.name=name;
-      this.description = description;
-      this.date=date;
+   public Appointment(int id,int userid, String name, Date beginDate, Date endDate) {
+      this.userid= userid;
+      this.id = id;
+      this.name = name;
+      this.beginDate = beginDate;
+      this.endDate = endDate;
    }
 
-   public Appointment(int appointmentId,String name,String description,Date date){
-      this.appointmentId=appointmentId;
-      this.name=name;
-      this.description = description;
-      this.date=date;
+   public Appointment() {
    }
 
-   // Getter Setters
-
-   public int getAppointmentId() {
-      return appointmentId;
+   public Appointment(int userid, String name, Date beginDate, Date endDate) {
+      this.userid= userid;
+      this.name = name;
+      this.beginDate = beginDate;
+      this.endDate = endDate;
    }
 
-   public void setAppointmentId(int appointmentId) {
-      this.appointmentId = appointmentId;
+   public int getId() {
+      return id;
    }
 
    public String getName() {
@@ -59,24 +50,24 @@ public class Appointment {
       this.name = name;
    }
 
-   public String getDescription() {
-      return description;
+   public Date getBeginDate() {
+      return beginDate;
    }
 
-   public void setDescription(String description) {
-      this.description = description;
+   public void setBeginDate(Date beginDate) {
+      this.beginDate = beginDate;
    }
 
-   public Date getDate() {
-      return date;
+   public Date getEndDate() {
+      return endDate;
    }
 
-   public void setDate(Date date) {
-      this.date = date;
+   public void setEndDate(Date endDate) {
+      this.endDate = endDate;
    }
 
-
-   // Methods
-
-
+   @Override
+   public String toString() {
+      return name;
+   }
 }

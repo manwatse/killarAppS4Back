@@ -1,4 +1,4 @@
-package RESTServer.handlers;
+package RESTServer.service;
 
 import com.google.gson.Gson;
 

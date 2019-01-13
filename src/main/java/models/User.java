@@ -1,30 +1,17 @@
 package models;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
-import java.util.Date;
+
 
 @Entity
-@Table(name = "Gebruiker")
+@Table(name ="Gebruiker")
 public class User {
     @Id
-    @Column(name = "userId")
-    @GeneratedValue(generator = "incrementor")
-    @GenericGenerator(name = "incrementor", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
-
-    @Column(name = "emailaddress", nullable = false)
     private String emailaddress;
-
-    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "tokenstring",nullable = true)
-    private String tokenString;
-
-    @Column(name = "tokencreationdate",nullable = true)
-    private Date tokenCreationDate;
 
     // Getters and setters
     public int getUserId() {
@@ -47,21 +34,6 @@ public class User {
         this.password = password;
     }
 
-    public String getTokenString() {
-        return tokenString;
-    }
-
-    public void setTokenString(String tokenString) {
-        this.tokenString = tokenString;
-    }
-
-    public Date getTokenCreationDate() {
-        return tokenCreationDate;
-    }
-
-    public void setTokenCreationDate(Date tokenCreationDate) {
-        this.tokenCreationDate = tokenCreationDate;
-    }
 
     // Constructors
     public User() {}
@@ -71,12 +43,11 @@ public class User {
         this.password = password;
     }
 
-    public User(int userId, String emailaddress, String password, String tokenString, Date tokenCreationDate) {
+    public User(int userId, String emailaddress, String password) {
         this.userId = userId;
         this.emailaddress = emailaddress;
         this.password = password;
-        this.tokenString = tokenString;
-        this.tokenCreationDate = tokenCreationDate;
+
     }
 
     // Methods

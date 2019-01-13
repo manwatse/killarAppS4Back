@@ -22,16 +22,16 @@ public class UserTest {
         assertTrue(passwordHasher.comparePasswordHash("test", test.getPassword()));
     }
 
-    @Test
-    public void TestSecondConstructor() {
-        Token token = Token.generate();
-        User test = new User(1, "test@test.com", passwordHasher.getPasswordHash("test"), token.getTokenText(), token.getCreationDate());
-
-        assertEquals(test.getEmailaddress(), "test@test.com");
-        assertTrue(passwordHasher.comparePasswordHash("test", test.getPassword()));
-        assertEquals(test.getTokenString(), token.getTokenText());
-        assertEquals(test.getTokenCreationDate(), token.getCreationDate());
-    }
+//    @Test
+//    public void TestSecondConstructor() {
+//        Token token = Token.generate();
+//        User test = new User(1, "test@test.com", passwordHasher.getPasswordHash("test"), token.getTokenText(), token.getCreationDate());
+//
+//        assertEquals(test.getEmailaddress(), "test@test.com");
+//        assertTrue(passwordHasher.comparePasswordHash("test", test.getPassword()));
+//        assertEquals(test.getTokenString(), token.getTokenText());
+//        assertEquals(test.getTokenCreationDate(), token.getCreationDate());
+//    }
 
     @Test
     public void TestUserEmailMatches() {

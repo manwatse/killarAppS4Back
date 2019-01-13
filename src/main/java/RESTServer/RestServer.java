@@ -1,7 +1,10 @@
 package RESTServer;
 
-import RESTServer.handlers.*;
+import RESTServer.handlers.AppointmentHandler;
+import RESTServer.handlers.IAppointmentHandler;
+import RESTServer.service.*;
 
+import dal.repository.AppointmentRepository;
 import logging.Logger;
 import org.eclipse.jetty.server.*;
 import org.eclipse.jetty.servlet.FilterHolder;
@@ -33,17 +36,21 @@ public class RestServer {
         ServletHolder jerseyServlet = context.addServlet(ServletContainer.class, "/*");
         jerseyServlet.setInitOrder(0);
 
-        // Creating and settings handlers
+        // Creating handlers
 
-        calendarResponse calendarResponse = new calendarResponse();
-        AgendaHandler agendaHandler = new AgendaHandler();
+        IAppointmentHandler appointmentHandler = new AppointmentHandler(new AppointmentRepository());
 
 
+
+
+        AppointmentService.setHandler(appointmentHandler);
+
+        AppointmentHandler a = new AppointmentHandler(new AppointmentRepository());
+        a.addAppointmentTest();
 
 
         // Tells the Jersey Servlet which REST service/class to load
-        jerseyServlet.setInitParameter("jersey.config.server.provider.packages.classnames",
-                RESTServer.handlers.calendarResponse.class.getCanonicalName());
+        jerseyServlet.setInitParameter("jersey.config.server.provider.packages.classnames","RESTServer.service");
 
         try {
             jettyServer.start();
